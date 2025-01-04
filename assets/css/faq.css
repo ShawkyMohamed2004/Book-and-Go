@@ -1,0 +1,241 @@
+/* Import navbar and footer styles from home page */
+@import url('../css/index.css');
+
+/* Global variables */
+:root {
+    --primary-color: #FFD700;
+    --secondary-color: #6c757d;
+    --light-color: #FFD700;
+}
+
+/* Rest of FAQ specific styles */
+.hero-section {
+    padding: 120px 20px 20px;
+    text-align: center;
+    margin-bottom: 60px;
+    width: 100%;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.3);
+    
+    position: relative;
+}
+
+.hero-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #FFD700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section p {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+    z-index: 2;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(255, 215, 0, 0.37);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.search-icon {
+    position: absolute;
+    right: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFD700;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-icon:hover {
+    transform: translateY(-50%) scale(1.1);
+    color: #FFA500;
+}
+
+/* Category Pills */
+.categories-section {
+    margin-bottom: 40px;
+}
+
+.category-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.category-pill {
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-pill:hover,
+.category-pill.active {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    border-color: transparent;
+}
+
+/* Accordion Styling */
+.accordion-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: transparent;
+    color: #FFD700;
+    font-weight: 500;
+    padding: 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--primary-color);
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFD700'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-body {
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Contact Section */
+.contact-section {
+    margin: 80px 0;
+}
+
+.contact-card {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 165, 0, 0.1));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.contact-card h3 {
+    color: #FFD700;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 15px;
+}
+
+.btn-contact {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.accordion-item {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 15px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .search-input {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .category-pills {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .category-pill {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}

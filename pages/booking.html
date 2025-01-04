@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Hotel Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <link rel="stylesheet" href="../assets/css/booking.css">
+</head>
+<body>
+    <div class="booking-container">
+        <h1 class="page-title">
+            Luxury Suite Booking
+            <span>Your Perfect Stay Awaits</span>
+        </h1>
+        
+        <div class="booking-grid">
+            <div class="booking-form">
+                <!-- Progress Steps -->
+                <div class="booking-progress">
+                    <div class="progress-line">
+                        <div class="step active">
+                            <div class="step-number">1</div>
+                            <div class="step-text">Customer Info</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-text">Payment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="bookingForm">
+                    <!-- Step 1: Customer Information -->
+                    <div class="form-step" id="customerInfo">
+                        <h2 class="section-title">Customer Information</h2>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Special Requests (Optional)</label>
+                            <textarea class="form-control" rows="3" id="specialRequests" placeholder="Any special requirements or preferences?"></textarea>
+                        </div>
+                        <div class="text-end mt-4 nav-buttons">
+                            <div></div>
+                            <button type="button" class="btn btn-primary next-step" id="step1Next">Next</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Payment -->
+                    <div class="form-step d-none" id="paymentInfo">
+                        <h2 class="section-title">Payment Details</h2>
+                        
+                        <div class="credit-card-form">
+                            <div class="card-preview">
+                                <div class="card-front">
+                                    <div class="card-type">
+                                        <i class="fab fa-cc-visa"></i>
+                                    </div>
+                                    <div class="card-number-display">
+                                        <span id="cardNumberPreview">•••• •••• •••• ••••</span>
+                                    </div>
+                                    <div class="card-details">
+                                        <div class="card-holder">
+                                            <label>Card Holder</label>
+                                            <div id="cardHolderPreview">YOUR NAME</div>
+                                        </div>
+                                        <div class="card-expires">
+                                            <label>Expires</label>
+                                            <div id="cardExpiryPreview">MM/YY</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Card Holder Name</label>
+                                <input type="text" class="form-control" id="cardHolder" placeholder="Name on card" autocomplete="cc-name" required>
+                                <div class="invalid-feedback">Please enter the cardholder name</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Card Number</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number" required>
+                                    <span class="input-group-text card-type-icon">
+                                        <i class="fab fa-cc-visa"></i>
+                                    </span>
+                                </div>
+                                <div class="invalid-feedback">Please enter a valid card number</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Expiry Date</label>
+                                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY" maxlength="5" autocomplete="cc-exp" required>
+                                        <div class="invalid-feedback">Please enter a valid expiry date</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">CVV</label>
+                                        <input type="text" class="form-control" id="cvv" placeholder="123" maxlength="4" autocomplete="cc-csc" required>
+                                        <div class="invalid-feedback">Please enter a valid CVV</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-end mt-4 nav-buttons">
+                                <button type="button" class="btn btn-secondary prev-step">Previous</button>
+                                <button type="submit" class="btn btn-primary" id="confirmBooking">Confirm Booking</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="booking-summary">
+                <h2 class="section-title">Booking Summary</h2>
+                
+                <div class="room-preview">
+                    <img src="../assets/images/room1 m.jpg" alt="Luxury Suite" class="room-image">
+                    <div class="room-info">
+                        <h3 class="room-name" id="roomType">Executive Luxury Suite</h3>
+                        <div class="amenities">
+                            <div class="amenity-item">
+                                <i class="fas fa-bed"></i>
+                                <span>King Size Bed</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-bath"></i>
+                                <span>Luxury Bathroom</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-wifi"></i>
+                                <span>High-Speed WiFi</span>
+                            </div>
+                            <div class="amenity-item">
+                                <i class="fas fa-concierge-bell"></i>
+                                <span>24/7 Service</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-content">
+                    <div class="summary-grid">
+                        <div class="summary-section dates-section">
+                            <h3 class="summary-subtitle">Stay Details</h3>
+                            <div class="summary-item">
+                                <span class="summary-label"><i class="fas fa-calendar-check"></i> Check-in</span>
+                                <span class="summary-value" id="checkInDate">2024-12-22</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label"><i class="fas fa-calendar-times"></i> Check-out</span>
+                                <span class="summary-value" id="checkOutDate">2024-12-28</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label"><i class="fas fa-moon"></i> Duration</span>
+                                <span class="summary-value" id="nightsCount">6 Nights</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-section guests-section">
+                            <h3 class="summary-subtitle">Guest Count</h3>
+                            <div class="summary-item">
+                                <span class="summary-label"><i class="fas fa-user"></i> Adults</span>
+                                <span class="summary-value" id="adultCount">2</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label"><i class="fas fa-child"></i> Children</span>
+                                <span class="summary-value" id="childCount">2</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-label"><i class="fas fa-users"></i> Total Guests</span>
+                                <span class="summary-value" id="totalGuests">4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-section price-section">
+                        <div class="price-details">
+                            <div class="summary-item">
+                                <span class="summary-label">Rate per Night</span>
+                                <span class="summary-value" id="ratePerNight">$299</span>
+                            </div>
+                            <div class="summary-item subtotal">
+                                <span class="summary-label">Subtotal</span>
+                                <span class="summary-value" id="subtotal">$1,794</span>
+                            </div>
+                            <div class="summary-item tax">
+                                <span class="summary-label">Taxes & Fees (15%)</span>
+                                <span class="summary-value" id="taxes">$269.10</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span class="summary-label">Total Amount</span>
+                                <span class="summary-value" id="totalAmount">$2,063.10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add error notification div -->
+    <div id="errorNotification" class="error-notification">
+        <i class="fas fa-exclamation-circle"></i>
+        Please fill in all required fields
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="../assets/js/booking.js"></script>
+</body>
+</html>

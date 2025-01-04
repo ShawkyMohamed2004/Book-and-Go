@@ -1,0 +1,365 @@
+/* Import shared styles */
+@import url('../css/index.css');
+
+/* Contact Page Specific Styles */
+.hero-section {
+    padding: 100px 0 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    margin-bottom: 80px;
+    max-width: 1700px;
+    padding: 100px 20px;
+}
+
+.hero-section h1 {
+    font-family: 'Playfair Display', serif;
+    color: #FFD700;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    color: #fff;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Contact Info Cards */
+.contact-info-section {
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.info-card {
+    flex: 1;
+    width: calc(33.333% - 20px);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Icon Circle with Gradient */
+.icon-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    background: linear-gradient(145deg, #FFD700, #FFA500);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Custom Icons */
+.icon-circle i {
+    font-size: 24px;
+    color: #000;
+}
+
+/* Specific Icon Colors */
+.visit-icon {
+    background: linear-gradient(145deg, #FFD700, #DAA520);
+}
+
+.call-icon {
+    background: linear-gradient(145deg, #FFD700, #F4A460);
+}
+
+.email-icon {
+    background: linear-gradient(145deg, #FFD700, #FFA500);
+}
+
+/* Card Content */
+.info-card h4 {
+    color: #FFD700;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.info-card p {
+    color: #fff;
+    margin-bottom: 4px;
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* Row Container */
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: nowrap;
+    margin: 30px 0;
+}
+
+/* Container adjustments for better centering */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Contact Form */
+.contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.contact-card h3 {
+    color: #FFD700;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 25px;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    border: 1px solid #FFD700;
+}
+
+.btn-submit {
+    background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+    background-size: 200% auto;
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-submit:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.btn-submit i {
+    margin-right: 12px;
+    font-size: 16px;
+}
+
+/* Map Container */
+.map-container {
+    flex: 1;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    border: none;
+}
+
+/* Form and Map Section */
+.contact-form-section {
+    margin-top: 80px;
+    padding: 40px 15px;
+    background: none;
+}
+
+/* Section Titles */
+.section-title {
+    color: #FFD700;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* Form and Map Container */
+.contact-form-container {
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+/* Message Form */
+.message-form {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 30px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Location Section */
+.location-section {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 30px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 30px 15px;
+        margin-bottom: 60px;
+    }
+    
+    .contact-info-section {
+        margin-top: 60px;
+        margin-bottom: 80px;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .info-card {
+        margin-bottom: 20px;
+        padding: 30px 20px;
+    }
+    
+    .contact-card {
+        margin-bottom: 20px;
+    }
+
+    .icon-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .info-card h4 {
+        font-size: 20px;
+    }
+
+    .info-card p {
+        font-size: 14px;
+    }
+
+    .contact-info-section {
+        margin-bottom: 80px;
+    }
+    
+    .contact-form-section {
+        margin-top: 60px;
+        padding: 30px 15px;
+    }
+} 
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .contact-form-container {
+        flex-direction: column;
+    }
+    
+    .message-form,
+    .location-section {
+        min-height: auto;
+    }
+    
+    .map-container iframe {
+        min-height: 350px;
+    }
+
+    .row {
+        flex-wrap: wrap;
+    }
+    
+    .info-card {
+        flex: 0 1 300px;
+    }
+} 
+
+/* Custom Select Styling */
+select.form-control {
+    appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FFD700' d='M6 9L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+/* Option Styling */
+select.form-control option {
+    background: rgba(30, 30, 30, 0.95);
+    color: #fff;
+    padding: 12px;
+    font-size: 15px;
+}
+
+/* Hover State */
+select.form-control:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #FFD700;
+}
+
+/* Focus State */
+select.form-control:focus {
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Selected Option */
+select.form-control option:checked {
+    background: linear-gradient(145deg, #FFD700, #FFA500);
+    color: #000;
+}
+
+/* Hover on Options */
+select.form-control option:hover {
+    background: rgba(255, 215, 0, 0.2);
+}

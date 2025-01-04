@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/confirmation.css">
+</head>
+<body>
+    <div class="container">
+        <div class="confirmation-section no-print">
+            <i class="fas fa-check-circle confirmation-icon"></i>
+            <h2 class="section-title">Booking Confirmed!</h2>
+            <p class="lead">Thank you for choosing our hotel. Your booking has been confirmed.</p>
+        </div>
+
+        <div class="confirmation-card" id="printArea">
+            <div class="text-center mb-4">
+                <h3 class="section-title">Booking Confirmation</h3>
+                <p class="booking-id">Booking ID: <span id="bookingId"></span></p>
+            </div>
+
+            <div class="booking-details">
+                <h4 class="section-title">Guest Information</h4>
+                <div class="detail-row">
+                    <span>Guest Name:</span>
+                    <span id="guestName"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Email:</span>
+                    <span id="guestEmail"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Phone:</span>
+                    <span id="guestPhone"></span>
+                </div>
+
+                <h4 class="section-title mt-5">Stay Details</h4>
+                <div class="detail-row">
+                    <span>Hotel:</span>
+                    <span id="hotelName"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Room Type:</span>
+                    <span id="roomType"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Check-in Date:</span>
+                    <span id="checkInDate"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Check-out Date:</span>
+                    <span id="checkOutDate"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Number of Nights:</span>
+                    <span id="numberOfNights"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Guests:</span>
+                    <span id="guestCount"></span>
+                </div>
+
+                <div class="price-summary">
+                    <h4 class="section-title">Price Summary</h4>
+                    <div class="detail-row">
+                        <span>Room Rate (per night):</span>
+                        <span id="ratePerNight"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Taxes (15%):</span>
+                        <span id="taxes"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Total Amount:</span>
+                        <span id="totalAmount" class="total-price"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-buttons no-print">
+            <button class="btn btn-gold" onclick="printConfirmation()">
+                <i class="fas fa-print me-2"></i>Print Confirmation
+            </button>
+            <a href="../index.html" class="btn btn-gold-outline">
+                <i class="fas fa-home me-2"></i>Return to Home
+            </a>
+        </div>
+    </div>
+    <script src="../assets/js/confirmation.js"></script>
+</body>
+</html>

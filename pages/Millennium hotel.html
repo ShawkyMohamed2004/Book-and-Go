@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millennium Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/Millennium hotel.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Millennium Hotel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Rooms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Dining</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Dynamic Text -->
+    <section class="hero-slider">
+        <div class="slide active">
+            <img src="../assets/images/Millennium Downtown.jpg" alt="Hotel View">
+        </div>
+        <div class="slide">
+            <img src="../assets/images/pool m.jpg" alt="Hotel Pool">
+        </div>
+        <div class="slide">
+            <img src="../assets/images/resturant m.jpg" alt="Hotel Restaurant">
+        </div>
+
+        <div class="hotel-overlay">
+            <div class="hotel-info">
+                <h1 class="main-title">Millennium Hotel</h1>
+                <p class="tagline">Where Timeless Elegance Meets Modern Luxury</p>
+                <div class="hotel-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="rating-text">5.0 Exceptional</span>
+                    <span class="review-count">(1,248 Reviews)</span>
+                </div>
+                <div class="hotel-description">
+                    <div class="features-list">
+                        <span><i class="fas fa-concierge-bell"></i> 24/7 Service</span>
+                        <span><i class="fas fa-spa"></i> Luxury Spa</span>
+                        <span><i class="fas fa-utensils"></i> Fine Dining</span>
+                        <span><i class="fas fa-swimming-pool"></i> Infinity Pool</span>
+                    </div>
+                </div>
+
+                <!-- تحديث قسم البحث -->
+                <div class="booking-search-container">
+                    <div class="booking-search-form">
+                        <div class="search-field">
+                            <label><i class="fas fa-calendar-alt"></i> Check-in</label>
+                            <div class="date-input">
+                                <input type="date" id="checkIn">
+                            </div>
+                        </div>
+                        
+                        <div class="search-field">
+                            <label><i class="fas fa-calendar-alt"></i> Check-out</label>
+                            <div class="date-input">
+                                <input type="date" id="checkOut">
+                            </div>
+                        </div>
+                        
+                        <div class="search-field">
+                            <label><i class="fas fa-user"></i> Adults</label>
+                            <div class="counter-input">
+                                <button class="counter-btn minus">−</button>
+                                <span class="counter-value">1</span>
+                                <button class="counter-btn plus">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="search-field">
+                            <label><i class="fas fa-child"></i> Children</label>
+                            <div class="counter-input">
+                                <button class="counter-btn minus">−</button>
+                                <span class="counter-value">0</span>
+                                <button class="counter-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="search-rooms-btn">
+                        <i class="fas fa-search"></i> Search Available Rooms
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-concierge-bell feature-icon"></i>
+                        <h3>24/7 Service</h3>
+                        <p>Round-the-clock concierge and room service</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-spa feature-icon"></i>
+                        <h3>Luxury Spa</h3>
+                        <p>World-class spa and wellness center</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-utensils feature-icon"></i>
+                        <h3>Fine Dining</h3>
+                        <p>Multiple restaurants with international cuisine</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-swimming-pool feature-icon"></i>
+                        <h3>Infinity Pool</h3>
+                        <p>Rooftop pool with panoramic city views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Rooms & Suites Section -->
+    <section class="rooms-section">
+        <div class="container">
+            <h2 class="section-title">Luxury Rooms & Suites</h2>
+            <div class="room-cards">
+                <!-- First Row -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/Deluxe M.jpg" alt="Deluxe Room">
+                        <span class="room-tag">Most Popular</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Deluxe Room</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(248 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-ruler-combined"></i> 45m²</span>
+                            <span><i class="fas fa-mountain"></i> City View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-shower"></i> Rain Shower</span>
+                            <span><i class="fas fa-coffee"></i> Coffee Machine</span>
+                            <span><i class="fas fa-tv"></i> 55" Smart TV</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price-details">
+                                <span class="price">$200</span>
+                                
+                            </div>
+                            <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/Suite M.jpg" alt="Standard Room">
+                        <span class="room-tag">Comfort</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Standard Room</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(186 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed + Sofa</span>
+                            <span><i class="fas fa-ruler-combined"></i> 75m²</span>
+                            <span><i class="fas fa-mountain"></i> Ocean View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> Premium WiFi</span>
+                            <span><i class="fas fa-bath"></i> Jacuzzi</span>
+                            <span><i class="fas fa-glass-martini-alt"></i> Mini Bar</span>
+                            <span><i class="fas fa-concierge-bell"></i> Butler Service</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price-details">
+                                <span class="price">$350</span>
+                                
+                            </div>
+                            <button class="book-btn premium" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/President M.jpg" alt="Presidential Suite">
+                        <span class="room-tag luxury">Ultra Luxury</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Presidential Suite</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(92 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 2 King Beds</span>
+                            <span><i class="fas fa-ruler-combined"></i> 120m²</span>
+                            <span><i class="fas fa-mountain"></i> Panoramic View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> VIP WiFi</span>
+                            <span><i class="fas fa-swimming-pool"></i> Private Pool</span>
+                            <span><i class="fas fa-utensils"></i> Private Chef</span>
+                            <span><i class="fas fa-car"></i> Limo Service</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price-details">
+                                <span class="price">$500</span>
+                                
+                            </div>
+                            <button class="book-btn luxury" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/room3 m.jpg" alt="Ocean View Suite">
+                        <span class="room-tag premium">Ocean View</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Ocean View Suite</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(165 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-ruler-combined"></i> 65m²</span>
+                            <span><i class="fas fa-water"></i> Ocean View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> High-Speed WiFi</span>
+                            <span><i class="fas fa-hot-tub"></i> Hot Tub</span>
+                            <span><i class="fas fa-cocktail"></i> Mini Bar</span>
+                            <span><i class="fas fa-umbrella-beach"></i> Beach Access</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price-details">
+                                <span class="price">$1000</span>
+                                
+                            </div>
+                            <button class="book-btn premium" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/Family suite.jpg" alt="Family Suite">
+                        <span class="room-tag">Family Choice</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Family Suite</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(142 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 2 Queen Beds</span>
+                            <span><i class="fas fa-ruler-combined"></i> 85m²</span>
+                            <span><i class="fas fa-users"></i> Up to 4 Guests</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-gamepad"></i> Game Room</span>
+                            <span><i class="fas fa-utensils"></i> Kitchenette</span>
+                            <span><i class="fas fa-couch"></i> Living Area</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price-details">
+                                <span class="price">$450</span>
+                                
+                            </div>
+                            <button class="book-btn premium" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/room5 m.jpg" alt="Royal Penthouse">
+                        <span class="room-tag ultra">Ultra Elite</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Royal Penthouse</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(58 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 2 King Beds</span>
+                            <span><i class="fas fa-ruler-combined"></i> 200m²</span>
+                            <span><i class="fas fa-compass"></i> 360° View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> VIP WiFi</span>
+                            <span><i class="fas fa-swimming-pool"></i> Private Pool</span>
+                            <span><i class="fas fa-helicopter"></i> Helipad Access</span>
+                            <span><i class="fas fa-user-tie"></i> Personal Butler</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price-details">
+                                <span class="price">$800</span>
+                                
+                            </div>
+                            <button class="book-btn luxury" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    </section>
+
+    <!-- Offer Details Modal -->
+    <div class="modal fade" id="offerDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Offer Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Content will be dynamically inserted -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/Millennium hotel.js"></script>
+</body>
+</html>

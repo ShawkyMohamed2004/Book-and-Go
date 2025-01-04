@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterContinental Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Main Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('../assets/images/galary\ 5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hotel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hotel-info {
+            margin-bottom: 20px;
+        }
+
+        .hotel-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            display: flex;
+            margin-right: 10px;
+        }
+
+        .stars i {
+            color: #FFD700;
+        }
+
+        .rating-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .review-count {
+            font-size: 1rem;
+            color: #888;
+        }
+
+        /* Hotel Features */
+        .features-section {
+            padding: 80px 0;
+            background: transparent;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        /* Room Cards Section */
+        .rooms-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('../assets/images/galary\ 5.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Room Cards Container */
+        .room-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-image {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            flex-shrink: 0;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.1);
+        }
+
+        .room-details {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 25px;
+            color: #333;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* تحديث تصميم التقييمات */
+        .room-rating {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .room-rating span {
+            color: #888;
+            margin-left: 5px;
+        }
+
+        /* تحديث تصميم المميزات */
+        .room-features, 
+        .room-amenities {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .room-features span, 
+        .room-amenities span {
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        .room-features span i, 
+        .room-amenities span i {
+            color: #c59d5f;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* تحديث تصميم السعر وزر الحجز */
+        .room-price {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #c59d5f;
+            position: relative;
+        }
+
+        .price::before {
+            content: '$';
+            font-size: 1rem;
+            position: absolute;
+            top: 0;
+            left: -15px;
+        }
+
+        .book-btn {
+            background: linear-gradient(45deg, #FFD700, #c59d5f);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .book-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(197, 157, 95, 0.3);
+        }
+
+        /* تحديث تصميم العلامات */
+        .room-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(197, 157, 95, 0.9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .room-tag.luxury {
+            background: rgba(139, 107, 67, 0.9);
+        }
+
+        .room-tag.ultra {
+            background: rgba(72, 52, 28, 0.9);
+        }
+
+        .room-tag.premium {
+            background: rgba(168, 140, 91, 0.9);
+        }
+
+        /* تحديث تصميم الحاوية */
+        .room-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            align-items: stretch;
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 1200px) {
+            .room-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .room-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .room-card {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Section Title Style */
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #FFD700, #c59d5f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 50px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(to right, #FFD700, #c59d5f);
+        }
+
+        /* Room Tags Style */
+        .room-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            background: rgba(0, 0, 0, 0.8); /* لون أسود شفاف */
+        }
+
+        .room-tag.luxury {
+            background: rgba(0, 0, 0, 0.9); /* أسود غامق */
+        }
+
+        .room-tag.premium {
+            background: rgba(168, 140, 91, 0.9);
+        }
+
+        /* Room Cards Container */
+        .room-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Room Card Style */
+        .room-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .room-image {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.1);
+        }
+
+        .room-details {
+            padding: 20px;
+        }
+
+        .room-details h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .room-rating {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .room-features, .room-amenities {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .room-features span, 
+        .room-amenities span {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+        }
+
+        .room-features span i, 
+        .room-amenities span i {
+            color: #fff;
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* العنصر الأخير */
+        .room-features span:last-child {
+            grid-column: 1 / -1;
+            justify-content: center;
+        }
+
+        .number-spinner {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .number-spinner input {
+            appearance: textfield;
+            -moz-appearance: textfield;
+            width: 60px;
+            text-align: center;
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 1rem;
+            padding: 10px 0;
+        }
+
+        .number-spinner input::-webkit-outer-spin-button,
+        .number-spinner input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .spinner-btn {
+            background: transparent;
+            border: none;
+            color: #FFD700;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .spinner-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .spinner-btn:active {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .spinner-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Booking Search Styles */
+        .booking-search {
+            padding: 30px 0;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .booking-search-form {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .search-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-field label {
+            color: #FFD700;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .date-input {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .date-input input[type="date"] {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .date-input input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        .counter-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .counter-btn {
+            background: none;
+            border: none;
+            color: #FFD700;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .counter-btn:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .counter-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .counter-value {
+            color: white;
+            min-width: 30px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .search-rooms-btn {
+            background: linear-gradient(45deg, #B8860B, #FFD700, #C59D5F);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            padding: 15px;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            grid-column: 1 / -1;
+        }
+
+        .search-rooms-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 157, 95, 0.3);
+            background: linear-gradient(45deg, #C59D5F, #FFD700, #B8860B);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .booking-search-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+
+        @media (max-width: 576px) {
+            .booking-search-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking-search {
+                margin: -50px 15px 30px;
+                padding: 20px;
+            }
+        }
+        
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+
+        .booking-search-container {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .booking-search-form {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .search-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .search-field label {
+            color: #FFD700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .date-input input,
+        .counter-input {
+            width: 100%;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .counter-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .counter-btn {
+            background: none;
+            border: none;
+            color: #FFD700;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+
+        .counter-value {
+            min-width: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .search-rooms-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(45deg, #FFD700, #c59d5f);
+            color: black;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-rooms-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(197, 157, 95, 0.3);
+        }
+
+        @media (max-width: 992px) {
+            .booking-search-form {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .booking-search-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking-search {
+                margin: -50px 15px 30px;
+                padding: 20px;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+        .hotel-description {
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .elegant-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            background: linear-gradient(45deg, #FFD700, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            text-shadow: none;
+        }
+
+        .luxury-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .signature-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: #FFD700;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Animations */
+        .typewriter-2 {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end);
+        }
+
+        .fade-in-1 {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 3.5s;
+        }
+
+        .fade-in-2 {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            animation-delay: 4s;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تحديث أنماط بطاقات الغرف */
+        .room-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* تحديث أنماط العلامات */
+        .room-tag.premium {
+            background: rgba(168, 140, 91, 0.9);
+        }
+
+        /* تحديث أنماط أزرار الحجز */
+        .book-btn.premium {
+            background: linear-gradient(45deg, #FFD700, #c59d5f);
+            color: black;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .book-btn.premium:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(197, 157, 95, 0.3);
+        }
+
+        /* تحديث أنماط تفاصيل الغرفة */
+        .room-details {
+            padding: 25px;
+            background: linear-gradient(
+                180deg,
+                transparent,
+                rgba(0, 0, 0, 0.8) 20%,
+                rgba(0, 0, 0, 0.95)
+            );
+        }
+
+        /* تحديث أنماط المميزات */
+        .room-features span,
+        .room-amenities span {
+            background: rgba(20, 20, 20, 0.95);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .room-features span:hover,
+        .room-amenities span:hover {
+            background: rgba(20, 20, 20, 0.98);
+            border-color: #FFD700;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">InterContinental Hotel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Rooms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Dining</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Dynamic Text -->
+    <section class="hero-slider">
+        <div class="slide active">
+            <img src="../assets/images/galary 5.jpg" alt="Hotel View">
+        </div>
+        <div class="hotel-overlay">
+            <div class="content-wrapper">
+                <div class="hotel-info">
+                    <h1 class="main-title typewriter">InterContinental Hotel</h1>
+                    <div class="hotel-rating fade-in">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-text">5.0 Exceptional</span>
+                        <span class="review-count">(1,248 Reviews)</span>
+                    </div>
+                    
+                    <div class="hotel-description">
+                        <h2 class="elegant-tagline typewriter-2">A Symphony of Luxury</h2>
+                        <div class="description-content">
+                            <p class="luxury-text fade-in-1">Where elegance meets perfection</p>
+                            <p class="signature-text fade-in-2">Your exceptional journey awaits</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بوكس البحث -->
+                <div class="booking-search-form">
+                    <div class="search-field">
+                        <label><i class="fas fa-calendar-alt"></i> Check-in</label>
+                        <div class="date-input">
+                            <input type="date" id="checkIn">
+                        </div>
+                    </div>
+                    
+                    <div class="search-field">
+                        <label><i class="fas fa-calendar-alt"></i> Check-out</label>
+                        <div class="date-input">
+                            <input type="date" id="checkOut">
+                        </div>
+                    </div>
+                    
+                    <div class="search-field">
+                        <label><i class="fas fa-user"></i> Adults</label>
+                        <div class="counter-input">
+                            <button class="counter-btn minus">−</button>
+                            <span class="counter-value">1</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="search-field">
+                        <label><i class="fas fa-child"></i> Children</label>
+                        <div class="counter-input">
+                            <button class="counter-btn minus">−</button>
+                            <span class="counter-value">0</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
+                    </div>
+
+                    <button class="search-rooms-btn">
+                        <i class="fas fa-search"></i> Search Available Rooms
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-concierge-bell feature-icon"></i>
+                        <h3>24/7 Service</h3>
+                        <p>Round-the-clock concierge and room service</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-spa feature-icon"></i>
+                        <h3>Luxury Spa</h3>
+                        <p>World-class spa and wellness center</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-utensils feature-icon"></i>
+                        <h3>Fine Dining</h3>
+                        <p>Multiple restaurants with international cuisine</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-swimming-pool feature-icon"></i>
+                        <h3>Infinity Pool</h3>
+                        <p>Rooftop pool with panoramic city views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Rooms & Suites Section -->
+    <section class="rooms-section">
+        <div class="container">
+            <h2 class="section-title">Luxury Rooms & Suites</h2>
+            <div class="room-cards">
+                <!-- First Row -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/Deluxe blanc.jpg" alt="Deluxe Room">
+                        <div class="room-tag">Most Popular</div>
+                    </div>
+                    <div class="room-details">
+                        <h3>Deluxe Room</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(248 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-ruler-combined"></i> 45m²</span>
+                            <span><i class="fas fa-mountain"></i> City View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-shower"></i> Rain Shower</span>
+                            <span><i class="fas fa-coffee"></i> Coffee Machine</span>
+                            <span><i class="fas fa-tv"></i> 55" Smart TV</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price">$200</div>
+                            <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/standard blanc.jpg" alt="Standard Room">
+                        <span class="room-tag">Comfort</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Standard Room</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(186 reviews)</span>
+                </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed + Sofa</span>
+                            <span><i class="fas fa-ruler-combined"></i> 75m²</span>
+                            <span><i class="fas fa-mountain"></i> Ocean View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> Premium WiFi</span>
+                            <span><i class="fas fa-bath"></i> Jacuzzi</span>
+                            <span><i class="fas fa-glass-martini-alt"></i> Mini Bar</span>
+                            <span><i class="fas fa-concierge-bell"></i> Butler Service</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price">$350</div>
+                            <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/Presidant blanc.jpg" alt="Presidential Suite">
+                        <span class="room-tag luxury">Ultra Luxury</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Presidential Suite</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(92 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 2 King Beds</span>
+                            <span><i class="fas fa-ruler-combined"></i> 120m²</span>
+                            <span><i class="fas fa-mountain"></i> Panoramic View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> VIP WiFi</span>
+                            <span><i class="fas fa-swimming-pool"></i> Private Pool</span>
+                            <span><i class="fas fa-utensils"></i> Private Chef</span>
+                            <span><i class="fas fa-car"></i> Limo Service</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price">$500</div>
+                            <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/ocean-view blanc.jpg" alt="Ocean View Suite">
+                        <span class="room-tag premium">Ocean View</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Ocean View Suite</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(165 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> King Bed</span>
+                            <span><i class="fas fa-ruler-combined"></i> 65m²</span>
+                            <span><i class="fas fa-water"></i> Ocean View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> High-Speed WiFi</span>
+                            <span><i class="fas fa-hot-tub"></i> Hot Tub</span>
+                            <span><i class="fas fa-cocktail"></i> Mini Bar</span>
+                            <span><i class="fas fa-umbrella-beach"></i> Beach Access</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price">$400</div>
+                            <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/Family blanc.jpg" alt="Family Suite">
+                        <span class="room-tag">Family Choice</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Family Suite</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(142 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 2 Queen Beds</span>
+                            <span><i class="fas fa-ruler-combined"></i> 85m²</span>
+                            <span><i class="fas fa-users"></i> Up to 4 Guests</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                            <span><i class="fas fa-gamepad"></i> Game Room</span>
+                            <span><i class="fas fa-utensils"></i> Kitchenette</span>
+                            <span><i class="fas fa-couch"></i> Living Area</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price">$450</div>
+                            <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="../assets/images/Royal blanc.jpg" alt="Royal Penthouse">
+                        <span class="room-tag ultra">Ultra Elite</span>
+                    </div>
+                    <div class="room-details">
+                        <h3>Royal Penthouse</h3>
+                        <div class="room-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(58 reviews)</span>
+                        </div>
+                        <div class="room-features">
+                            <span><i class="fas fa-bed"></i> 2 King Beds</span>
+                            <span><i class="fas fa-ruler-combined"></i> 200m²</span>
+                            <span><i class="fas fa-compass"></i> 360° View</span>
+                        </div>
+                        <div class="room-amenities">
+                            <span><i class="fas fa-wifi"></i> VIP WiFi</span>
+                            <span><i class="fas fa-swimming-pool"></i> Private Pool</span>
+                            <span><i class="fas fa-helicopter"></i> Helipad Access</span>
+                            <span><i class="fas fa-user-tie"></i> Personal Butler</span>
+                        </div>
+                        <div class="room-price">
+                            <div class="price">$800</div>
+                            <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            setInterval(nextSlide, 5000);
+        });
+    </script>
+    <script>
+        // تعريف سعات الغرف بشكل أكثر دقة
+        const roomCapacities = {
+            'Deluxe Room': {
+                minAdults: 1,
+                maxAdults: 2,
+                minChildren: 0,
+                maxChildren: 1,
+                maxTotal: 3,
+                ideal: true
+            },
+            'Standard Room': {
+                minAdults: 2,
+                maxAdults: 2,
+                minChildren: 1,
+                maxChildren: 2,
+                maxTotal: 4,
+                ideal: true
+            },
+            'Presidential Suite': {
+                minAdults: 3,
+                maxAdults: 4,
+                minChildren: 2,
+                maxChildren: 3,
+                maxTotal: 7,
+                ideal: true
+            },
+            'Ocean View Suite': {
+                minAdults: 2,
+                maxAdults: 3,
+                minChildren: 1,
+                maxChildren: 2,
+                maxTotal: 5,
+                ideal: true
+            },
+            'Family Suite': {
+                minAdults: 3,
+                maxAdults: 4,
+                minChildren: 2,
+                maxChildren: 4,
+                maxTotal: 8,
+                ideal: true
+            },
+            'Royal Penthouse': {
+                minAdults: 4,
+                maxAdults: 6,
+                minChildren: 2,
+                maxChildren: 4,
+                maxTotal: 10,
+                ideal: true
+            }
+        };
+
+        // Function to check if room is suitable
+        function isRoomSuitable(roomType, adults, children) {
+            const capacity = roomCapacities[roomType];
+            const numAdults = parseInt(adults);
+            const numChildren = parseInt(children) || 0;
+            const totalGuests = numAdults + numChildren;
+
+            // التحقق من أن عدد الأشخاص يقع ضمن النطاق المثالي للغرفة
+            return numAdults >= capacity.minAdults && 
+                   numAdults <= capacity.maxAdults && 
+                   numChildren >= capacity.minChildren && 
+                   numChildren <= capacity.maxChildren && 
+                   totalGuests <= capacity.maxTotal;
+        }
+
+        // Function to search rooms
+        function searchRooms() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            const adults = document.getElementById('adultCount').value;
+            const children = document.getElementById('childCount').value || 0;
+
+            if (!checkIn || !checkOut || !adults) {
+                alert('Please select check-in/out dates and number of guests');
+                return;
+            }
+
+            // Show loading state
+            const searchBtn = document.querySelector('.search-btn');
+            searchBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching...';
+
+            // Disable all book buttons first
+            const bookButtons = document.querySelectorAll('.book-btn');
+            bookButtons.forEach(button => {
+                button.style.opacity = '0.5';
+                button.style.cursor = 'not-allowed';
+                button.disabled = true;
+
+                // Add message about why room is not available
+                const roomCard = button.closest('.room-card');
+                const existingMessage = roomCard.querySelector('.availability-message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+            });
+
+            // Enable only suitable rooms
+            let foundSuitableRoom = false;
+            bookButtons.forEach(button => {
+                const roomType = button.getAttribute('onclick').match(/'(.*?)'/)[1];
+                const roomCard = button.closest('.room-card');
+                const capacity = roomCapacities[roomType];
+                
+                if (isRoomSuitable(roomType, adults, children)) {
+                    button.style.opacity = '1';
+                    button.style.cursor = 'pointer';
+                    button.disabled = false;
+                    foundSuitableRoom = true;
+
+                    // Add success message
+                    const message = document.createElement('div');
+                    message.className = 'availability-message success';
+                    message.innerHTML = `
+                        <div class="message-content">
+                            <div class="message-left">
+                                <i class="fas fa-check-circle"></i>
+                                <span class="message-title">Perfect Match</span>
+                            </div>
+                            <div class="message-right">
+                                <span class="guest-info">
+                                    <i class="fas fa-user"></i> ${capacity.maxAdults} adults
+                                </span>
+                                <span class="guest-info">
+                                    <i class="fas fa-child"></i> up to ${capacity.maxChildren} children
+                                </span>
+                            </div>
+                        </div>
+                    `;
+                    roomCard.querySelector('.room-price').appendChild(message);
+                } else {
+                    // Add message why room is not suitable
+                    const message = document.createElement('div');
+                    message.className = 'availability-message error';
+                    message.innerHTML = `
+                        <div class="message-content">
+                            <div class="message-left">
+                                <i class="fas fa-info-circle"></i>
+                                <span class="message-title">Not Available</span>
+                            </div>
+                            <div class="message-right">
+                                <span class="guest-info">
+                                    <i class="fas fa-user"></i> ${capacity.minAdults}-${capacity.maxAdults} adults
+                                </span>
+                                <span class="guest-info">
+                                    <i class="fas fa-child"></i> ${capacity.minChildren}-${capacity.maxChildren} children
+                                </span>
+                            </div>
+                        </div>
+                    `;
+                    roomCard.querySelector('.room-price').appendChild(message);
+                }
+            });
+
+            if (!foundSuitableRoom) {
+                alert('No rooms available for the selected number of guests. Please adjust your search criteria.');
+            }
+
+            // Scroll to rooms section
+            const roomsSection = document.querySelector('.rooms-section');
+            if (roomsSection) {
+                setTimeout(() => {
+                    roomsSection.scrollIntoView({ behavior: 'smooth' });
+                    searchBtn.innerHTML = '<i class="fas fa-search"></i> Search Available Rooms';
+                }, 1000);
+            }
+        }
+
+        // Function to handle room booking
+        function bookRoom(roomId) {
+            const room = hotelRooms["InterContinental Hotel"].rooms.find(r => r.id === roomId);
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            const adults = parseInt(document.querySelector('.adults-count').textContent);
+            const children = parseInt(document.querySelector('.children-count').textContent);
+
+            if (!checkIn || !checkOut) {
+                alert('Please select check-in and check-out dates');
+                return;
+            }
+
+            const bookingDetails = {
+                hotel: "InterContinental Hotel",
+                roomId: roomId,
+                roomType: room.name,
+                roomImage: room.image,
+                checkIn: checkIn,
+                checkOut: checkOut,
+                adults: adults,
+                children: children,
+                basePrice: room.basePrice,
+                extraPersonFee: room.extraPersonFee
+            };
+
+            localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
+            window.location.href = 'booking.html';
+        }
+
+        // إضافة مستمع حدث عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            // تفعيل جميع أزرار الحجز
+            const bookButtons = document.querySelectorAll('.book-btn');
+            bookButtons.forEach(button => {
+                button.disabled = false;
+                button.style.opacity = '1';
+                button.style.cursor = 'pointer';
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const spinners = document.querySelectorAll('.number-spinner');
+            
+            spinners.forEach(spinner => {
+                const input = spinner.querySelector('input');
+                const minusBtn = spinner.querySelector('.minus');
+                const plusBtn = spinner.querySelector('.plus');
+                
+                function updateButtons() {
+                    const value = parseInt(input.value);
+                    minusBtn.classList.toggle('disabled', value <= parseInt(input.min));
+                    plusBtn.classList.toggle('disabled', value >= parseInt(input.max));
+                }
+                
+                plusBtn.addEventListener('click', () => {
+                    const currentValue = parseInt(input.value);
+                    const maxValue = parseInt(input.max);
+                    if (currentValue < maxValue) {
+                        input.value = currentValue + 1;
+                        updateButtons();
+                    }
+                });
+                
+                minusBtn.addEventListener('click', () => {
+                    const currentValue = parseInt(input.value);
+                    const minValue = parseInt(input.min);
+                    if (currentValue > minValue) {
+                        input.value = currentValue - 1;
+                        updateButtons();
+                    }
+                });
+                
+                updateButtons();
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // تحديد كل الأزرار
+            const plusButtons = document.querySelectorAll('.plus');
+            const minusButtons = document.querySelectorAll('.minus');
+
+            // إضافة المستمعين لأزرار الزيادة
+            plusButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const counterValue = button.parentElement.querySelector('.counter-value');
+                    const isAdults = button.closest('.search-field').querySelector('label').textContent.includes('Adults');
+                    const currentValue = parseInt(counterValue.textContent);
+                    
+                    // التأكد من أن القيمة الجديدة فردية
+                    let newValue = currentValue + 2;
+                    if (newValue <= 9) {
+                        counterValue.textContent = newValue;
+                    }
+                });
+            });
+
+            // إضافة المستمعين لأزرار النقص
+            minusButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const counterValue = button.parentElement.querySelector('.counter-value');
+                    const isAdults = button.closest('.search-field').querySelector('label').textContent.includes('Adults');
+                    const currentValue = parseInt(counterValue.textContent);
+                    const minValue = isAdults ? 1 : 0;
+                    
+                    // التأكد من أن القيمة الجديدة فردية للبالغين
+                    let newValue = currentValue - 2;
+                    if (isAdults && newValue >= 1) {
+                        counterValue.textContent = newValue;
+                    } else if (!isAdults && newValue >= 0) {
+                        counterValue.textContent = newValue;
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تعطيل جميع أزرر الحجز عند تحميل الصفحة
+            const bookButtons = document.querySelectorAll('.book-btn');
+            bookButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('disabled');
+            });
+
+            // تفعيل الأزرار عند الضغط على زر البحث
+            document.querySelector('.search-rooms-btn').addEventListener('click', function() {
+                const checkIn = document.getElementById('checkIn').value;
+                const checkOut = document.getElementById('checkOut').value;
+                
+                if (!checkIn || !checkOut) {
+                    alert('Please select check-in and check-out dates');
+                    return;
+                }
+
+                // Get guests count
+                const adults = parseInt(document.querySelector('.search-field:nth-child(3) .counter-value').textContent);
+                const children = parseInt(document.querySelector('.search-field:nth-child(4) .counter-value').textContent);
+                const totalGuests = adults + children;
+
+                // Get all room cards
+                const roomCards = document.querySelectorAll('.room-card');
+
+                roomCards.forEach(card => {
+                    // Random availability (for demonstration)
+                    const isAvailable = Math.random() < 0.5;
+                    
+                    if (!isAvailable) {
+                        card.classList.add('room-unavailable');
+                        const bookBtn = card.querySelector('.book-btn');
+                        bookBtn.textContent = 'Not Available';
+                        bookBtn.disabled = true;
+                        bookBtn.classList.add('disabled');
+                        
+                        if (!card.querySelector('.unavailable-overlay')) {
+                            const overlay = document.createElement('div');
+                            overlay.className = 'unavailable-overlay';
+                            overlay.innerHTML = '<span>Not Available</span>';
+                            card.querySelector('.room-image').appendChild(overlay);
+                        }
+                    } else {
+                        card.classList.remove('room-unavailable');
+                        const bookBtn = card.querySelector('.book-btn');
+                        bookBtn.textContent = 'Book Now';
+                        bookBtn.disabled = false;
+                        bookBtn.classList.remove('disabled');
+                        
+                        const overlay = card.querySelector('.unavailable-overlay');
+                        if (overlay) {
+                            overlay.remove();
+                        }
+                    }
+                });
+
+                // Scroll to rooms section
+                document.querySelector('.rooms-section').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+    </script>
+    <script>
+        // Counter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter-input');
+            
+            counters.forEach(counter => {
+                const minusBtn = counter.querySelector('.minus');
+                const plusBtn = counter.querySelector('.plus');
+                const valueSpan = counter.querySelector('.counter-value');
+                
+                const isAdults = counter.closest('.search-field').querySelector('label').textContent.includes('Adults');
+                const minValue = isAdults ? 1 : 0;
+                const maxValue = 10;
+                
+                minusBtn.addEventListener('click', () => {
+                    let currentValue = parseInt(valueSpan.textContent);
+                    if (currentValue > minValue) {
+                        valueSpan.textContent = currentValue - 1;
+                    }
+                    updateButtonStates();
+                });
+                
+                plusBtn.addEventListener('click', () => {
+                    let currentValue = parseInt(valueSpan.textContent);
+                    if (currentValue < maxValue) {
+                        valueSpan.textContent = currentValue + 1;
+                    }
+                    updateButtonStates();
+                });
+                
+                function updateButtonStates() {
+                    const currentValue = parseInt(valueSpan.textContent);
+                    minusBtn.disabled = currentValue <= minValue;
+                    plusBtn.disabled = currentValue >= maxValue;
+                    minusBtn.classList.toggle('disabled', currentValue <= minValue);
+                    plusBtn.classList.toggle('disabled', currentValue >= maxValue);
+                }
+                
+                updateButtonStates();
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تعطيل جميع أزرر الحجز عند تحميل الصفحة
+            const bookButtons = document.querySelectorAll('.book-btn');
+            bookButtons.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('disabled');
+            });
+
+            // تفعيل الأزرار عند الضغط على زر البحث
+            document.querySelector('.search-rooms-btn').addEventListener('click', function() {
+                const checkIn = document.getElementById('checkIn').value;
+                const checkOut = document.getElementById('checkOut').value;
+                
+                if (!checkIn || !checkOut) {
+                    alert('Please select check-in and check-out dates');
+                    return;
+                }
+
+                // Get guests count
+                const adults = parseInt(document.querySelector('.search-field:nth-child(3) .counter-value').textContent);
+                const children = parseInt(document.querySelector('.search-field:nth-child(4) .counter-value').textContent);
+                const totalGuests = adults + children;
+
+                // Get all room cards
+                const roomCards = document.querySelectorAll('.room-card');
+
+                roomCards.forEach(card => {
+                    // Random availability (for demonstration)
+                    const isAvailable = Math.random() < 0.5;
+                    
+                    if (!isAvailable) {
+                        card.classList.add('room-unavailable');
+                        const bookBtn = card.querySelector('.book-btn');
+                        bookBtn.textContent = 'Not Available';
+                        bookBtn.disabled = true;
+                        bookBtn.classList.add('disabled');
+                        
+                        if (!card.querySelector('.unavailable-overlay')) {
+                            const overlay = document.createElement('div');
+                            overlay.className = 'unavailable-overlay';
+                            overlay.innerHTML = '<span>Not Available</span>';
+                            card.querySelector('.room-image').appendChild(overlay);
+                        }
+                    } else {
+                        card.classList.remove('room-unavailable');
+                        const bookBtn = card.querySelector('.book-btn');
+                        bookBtn.textContent = 'Book Now';
+                        bookBtn.disabled = false;
+                        bookBtn.classList.remove('disabled');
+                        
+                        const overlay = card.querySelector('.unavailable-overlay');
+                        if (overlay) {
+                            overlay.remove();
+                        }
+                    }
+                });
+
+                // Scroll to rooms section
+                document.querySelector('.rooms-section').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        });
+    </script>
+    <script>
+        // كود أزرار الزيادة والنقصان
+        document.addEventListener('DOMContentLoaded', function() {
+            const minusButtons = document.querySelectorAll('.minus');
+            const plusButtons = document.querySelectorAll('.plus');
+
+            minusButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const counterValue = this.parentElement.querySelector('.counter-value');
+                    const isAdults = this.closest('.search-field').querySelector('label').textContent.includes('Adults');
+                    const currentValue = parseInt(counterValue.textContent);
+                    const minValue = isAdults ? 1 : 0;
+
+                    if (currentValue > minValue) {
+                        counterValue.textContent = currentValue - 1;
+                    }
+                });
+            });
+
+            plusButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const counterValue = this.parentElement.querySelector('.counter-value');
+                    const currentValue = parseInt(counterValue.textContent);
+                    
+                    if (currentValue < 10) {
+                        counterValue.textContent = currentValue + 1;
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // حذف كل الأكواد السابقة للأزرار
+        const counterInputs = document.querySelectorAll('.counter-input');
+        
+        counterInputs.forEach(counter => {
+            const minusBtn = counter.querySelector('.minus');
+            const plusBtn = counter.querySelector('.plus');
+            const valueSpan = counter.querySelector('.counter-value');
+            const isAdults = counter.closest('.search-field').querySelector('label').textContent.includes('Adults');
+            
+            // تعيين القيم الأولية
+            let currentValue = parseInt(valueSpan.textContent);
+            const minValue = isAdults ? 1 : 0;
+            const maxValue = 10;
+
+            // زر النقصان
+            minusBtn.addEventListener('click', function() {
+                if (currentValue > minValue) {
+                    currentValue--;
+                    valueSpan.textContent = currentValue;
+                }
+            });
+
+            // زر الزيادة
+            plusBtn.addEventListener('click', function() {
+                if (currentValue < maxValue) {
+                    currentValue++;
+                    valueSpan.textContent = currentValue;
+                }
+            });
+        });
+
+        // زر البحث
+        const searchBtn = document.querySelector('.search-rooms-btn');
+        if (searchBtn) {
+            searchBtn.addEventListener('click', function() {
+                const checkIn = document.getElementById('checkIn').value;
+                const checkOut = document.getElementById('checkOut').value;
+
+                if (!checkIn || !checkOut) {
+                    alert('Please select check-in and check-out dates');
+                    return;
+                }
+
+                document.querySelector('.rooms-section').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+        }
+    });
+    </script>
+</body>
+</html>

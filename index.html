@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book&Go - Luxury Hotels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/shared.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <i class="fas fa-hotel"></i> Book&Go
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/about.html">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/contact.html">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/faq.html">
+                        <i class="fas fa-question-circle"></i> FAQ
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/login.html">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn-register" href="pages/signup.html">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Welcome Message -->
+<div class="welcome-message">
+    <h1 style="font-family: 'Playfair Display', serif; color: #FFD700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); font-size: 3rem; letter-spacing: 2px;">Welcome to Book&Go</h1>
+    <h2 style="font-family: 'Montserrat', sans-serif; color: #FFFFFF; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); font-size: 2rem; font-weight: 300;">Explore the Best Hotels Around the World</h2>
+</div>
+
+<!-- Search Section -->
+<div class="search-container">
+    <div class="search-box">
+        <div class="search-form">
+            <div class="search-input-group">
+                <i class="fas fa-map-marker-alt"></i>
+                <input 
+                    type="text" 
+                    id="destination" 
+                    placeholder="Where would you like to go?" 
+                    list="destinations"
+                    autocomplete="off"
+                >
+                <datalist id="destinations">
+                    <option value="New York">
+                    <option value="Paris">
+                    <option value="Dubai">
+                    <option value="Turkey">
+                    <option value="Egypt">
+                    <option value="Maldives">
+                </datalist>
+            </div>
+            <button type="button" class="search-btn" onclick="redirectToHotel()">
+                <i class="fas fa-search"></i>
+                Search
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Countries Section -->
+<section class="countries-section">
+    <div class="container">
+        <h2 class="section-title">Best Hotels in the World</h2>
+        <div class="slider-container">
+            <button class="slider-arrow prev-arrow">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="hotel-slider">
+                <!-- New York -->
+                <div class="country-card">
+                    <img src="assets/images/Newyork.jpg" alt="New York">
+                    <div class="card-body">
+                        <h5 class="card-title">New York</h5>
+                        <p>Explore world-class hotels in the heart of NYC.</p>
+                        <a href="../Book&Go/pages/New york hotels.html" class="explore-btn">Explore Hotels</a>
+                    </div>
+                </div>
+                <!-- Paris -->
+                <div class="country-card">
+                    <img src="assets/images/paris.jpg" alt="Paris">
+                    <div class="card-body">
+                        <h5 class="card-title">Paris</h5>
+                        <p>The city of love with luxury hotels and more.</p>
+                        <a href="../Book&Go/pages/Paris-hotels.html" class="explore-btn">Explore Hotels</a>
+                    </div>
+                </div>
+                <!-- Dubai -->
+                <div class="country-card">
+                    <img src="assets/images/dubai.jpg" alt="Dubai">
+                    <div class="card-body">
+                        <h5 class="card-title">Dubai</h5>
+                        <p>Experience opulence in the heart of the UAE.</p>
+                        <a href="../Book&Go/pages/Dubai-hotels.html" class="explore-btn">Explore Hotels</a>
+                    </div>
+                </div>
+                <!-- Turkey -->
+                <div class="country-card">
+                    <img src="assets/images/medina.jpg" alt="Turkey">
+                    <div class="card-body">
+                        <h5 class="card-title">Medina</h5>
+                        <p>Discover the magic where East meets West.</p>
+                        <a href="#" class="explore-btn coming-soon">Explore Hotels</a>
+                    </div>
+                </div>
+                <!-- Egypt -->
+                <div class="country-card">
+                    <img src="assets/images/egypt.jpg" alt="Egypt">
+                    <div class="card-body">
+                        <h5 class="card-title">Egypt</h5>
+                        <p>Ancient wonders and modern luxury combined.</p>
+                        <a href="#" class="explore-btn coming-soon">Explore Hotels</a>
+                    </div>
+                </div>
+                <!-- Maldives -->
+                <div class="country-card">
+                    <img src="assets/images/maldives.jpg" alt="Maldives">
+                    <div class="card-body">
+                        <h5 class="card-title">Maldives</h5>
+                        <p>Paradise on Earth with overwater villas.</p>
+                        <a href="#" class="explore-btn coming-soon">Explore Hotels</a>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-arrow next-arrow">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Global Deals Section -->
+<section class="global-deals">
+    <div class="container">
+        <h2 class="section-title">Top Global Deals</h2>
+        <div class="deals-grid">
+            <!-- Luxury Hotel in Paris -->
+            <div class="deal-card">
+                <div class="deal-badge">30% OFF</div>
+                <img src="assets/images/paris-hotel.jpg" alt="Paris Hotel Deal">
+                <div class="deal-content">
+                    <span class="location">
+                        <i class="fas fa-map-marker-alt"></i> Paris, France
+                    </span>
+                    <h3>Four Seasons George V</h3>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="amenities">
+                        <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                        <span><i class="fas fa-swimming-pool"></i> Pool</span>
+                        <span><i class="fas fa-spa"></i> Spa</span>
+                    </div>
+                    <p class="price">From <span class="original-price">$899</span> <span class="current-price">$629</span>/night</p>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Luxury Hotel in Dubai -->
+            <div class="deal-card">
+                <div class="deal-badge">25% OFF</div>
+                <img src="assets/images/dubai-hotel.jpg" alt="Dubai Hotel Deal">
+                <div class="deal-content">
+                    <span class="location">
+                        <i class="fas fa-map-marker-alt"></i> Dubai, UAE
+                    </span>
+                    <h3>Burj Al Arab Jumeirah</h3>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="amenities">
+                        <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                        <span><i class="fas fa-utensils"></i> Restaurant</span>
+                        <span><i class="fas fa-car"></i> Free Parking</span>
+                    </div>
+                    <p class="price">From <span class="original-price">$1200</span> <span class="current-price">$900</span>/night</p>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Luxury Hotel in Maldives -->
+            <div class="deal-card">
+                <div class="deal-badge">40% OFF</div>
+                <img src="assets/images/maldives-hotel.jpg" alt="Maldives Hotel Deal">
+                <div class="deal-content">
+                    <span class="location">
+                        <i class="fas fa-map-marker-alt"></i> Maldives
+                    </span>
+                    <h3>Soneva Jani</h3>
+                    <div class="hotel-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="amenities">
+                        <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                        <span><i class="fas fa-water"></i> Beach</span>
+                        <span><i class="fas fa-cocktail"></i> Bar</span>
+                    </div>
+                    <p class="price">From <span class="original-price">$1500</span> <span class="current-price">$900</span>/night</p>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Destinations -->
+<section class="featured-destinations">
+    <div class="container">
+        <h2 class="section-title">Popular Destinations</h2>
+        <div class="destinations-grid">
+            <!-- Dubai -->
+            <div class="destination-card">
+                <img src="assets/images/dubai-skyline.jpg" alt="Dubai">
+                <div class="destination-info">
+                    <h3>Dubai</h3>
+                    <p>250+ Luxury Hotels</p>
+                    <div class="destination-meta">
+                        <span><i class="fas fa-hotel"></i> From $150/night</span>
+                        <span><i class="fas fa-temperature-high"></i> 32°C</span>
+                    </div>
+                    <a href="#" class="explore-destination">Explore Hotels</a>
+                </div>
+            </div>
+
+            <!-- Paris -->
+            <div class="destination-card">
+                <img src="assets/images/paris-skyline.jpg" alt="Paris">
+                <div class="destination-info">
+                    <h3>Paris</h3>
+                    <p>180+ Luxury Hotels</p>
+                    <div class="destination-meta">
+                        <span><i class="fas fa-hotel"></i> From $200/night</span>
+                        <span><i class="fas fa-temperature-high"></i> 18°C</span>
+                    </div>
+                    <a href="#" class="explore-destination">Explore Hotels</a>
+                </div>
+            </div>
+
+            <!-- New York -->
+            <div class="destination-card">
+                <img src="assets/images/newyork-skyline.jpg" alt="New York">
+                <div class="destination-info">
+                    <h3>New York</h3>
+                    <p>300+ Luxury Hotels</p>
+                    <div class="destination-meta">
+                        <span><i class="fas fa-hotel"></i> From $180/night</span>
+                        <span><i class="fas fa-temperature-high"></i> 22°C</span>
+                    </div>
+                    <a href="#" class="explore-destination">Explore Hotels</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Platform Features -->
+<section class="platform-features">
+    <div class="container">
+        <h2 class="section-title">Why Choose Book&Go</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-globe"></i>
+                <h3>Worldwide Coverage</h3>
+                <p>Access to 500,000+ hotels across 190 countries</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Best Price Guarantee</h3>
+                <p>Find a lower price? We'll match it!</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Multi-language support team always ready to help</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Booking</h3>
+                <p>SSL encryption for safe transactions</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Customer Reviews -->
+<section class="customer-reviews">
+    <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="slider-container reviews-slider-container">
+            <button class="slider-arrow prev-arrow" id="reviewPrevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="reviews-slider">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-profile">
+                        <img src="assets/images/customer1.jpg" alt="Customer">
+                        <div class="review-info">
+                            <h4>John Smith</h4>
+                            <span>New York, USA</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Outstanding service! Booked a luxury hotel in Dubai, and everything was perfect. The platform is user-friendly and offers great deals."</p>
+                    <div class="review-hotel">
+                        <img src="assets/images/dubai.jpg" alt="Hotel">
+                        <span>Burj Al Arab, Dubai</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-profile">
+                        <img src="assets/images/customer2.jpg" alt="Customer">
+                        <div class="review-info">
+                            <h4>Emma Wilson</h4>
+                            <span>London, UK</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The best hotel booking platform I've used. Found an amazing deal for Paris, and the customer service was exceptional!"</p>
+                    <div class="review-hotel">
+                        <img src="assets/images/Four Seasons Hotel.jpg" alt="Hotel">
+                        <span>Four Seasons George V, Paris</span>
+                    </div>
+                </div>
+
+                <!-- Add more reviews following the same pattern -->
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-profile">
+                        <img src="assets/images/customer3.jpg" alt="Customer">
+                        <div class="review-info">
+                            <h4>David Chen</h4>
+                            <span>Singapore</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Seamless booking experience and great prices. The platform offers a wide selection of luxury hotels worldwide."</p>
+                    <div class="review-hotel">
+                        <img src="assets/images/Marina Bay Sands.jpg" alt="Hotel">
+                        <span>Marina Bay Sands, Singapore</span>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-profile">
+                        <img src="assets/images/customer4.jpg" alt="Customer">
+                        <div class="review-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Sydney, Australia</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Incredible experience! The luxury suite I booked exceeded all expectations. Will definitely use Book&Go again!"</p>
+                    <div class="review-hotel">
+                        <img src="assets/images/Crown Towers.jpg" alt="Hotel">
+                        <span>Crown Towers, Melbourne</span>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card">
+                    <div class="review-profile">
+                        <img src="assets/images/customer5.jpg" alt="Customer">
+                        <div class="review-info">
+                            <h4>Michael Brown</h4>
+                            <span>Toronto, Canada</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Perfect booking experience from start to finish. The customer service team was incredibly helpful!"</p>
+                    <div class="review-hotel">
+                        <img src="assets/images/Ritz-Carlton.jpg" alt="Hotel">
+                        <span>Ritz-Carlton, Montreal</span>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card">
+                    <div class="review-profile">
+                        <img src="assets/images/customer6.jpg" alt="Customer">
+                        <div class="review-info">
+                            <h4>Sofia Rodriguez</h4>
+                            <span>Madrid, Spain</span>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Amazing platform! Found the perfect hotel for our honeymoon. The prices were great and the service was exceptional."</p>
+                    <div class="review-hotel">
+                        <img src="assets/images/Hotel Arts Barcelona.jpg" alt="Hotel">
+                        <span>Hotel Arts Barcelona</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slider-arrow next-arrow" id="reviewNextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5><i class="fas fa-hotel"></i> Book&Go</h5>
+                <p>Your trusted partner in hotel bookings worldwide.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="pages/about.html">About Us</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="pages/faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p><i class="fas fa-envelope"></i> info@bookandgo.com</p>
+                <p><i class="fas fa-phone"></i> +1234567890</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Book&Go. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/index.js"></script>
+
+</body>
+</html>

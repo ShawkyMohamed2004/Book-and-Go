@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringHill Suites Hotel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/springhill suites hotel.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-hotel text-gold"></i> SpringHill Suites Hotel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="diningBtn">
+                            <i class="fas fa-utensils"></i> Dining
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pages/contact.html">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </li>
+                  
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-dollar-sign"></i> Currency
+                        </a>
+                        <ul class="dropdown-menu currency-dropdown">
+                            <li>
+                                <a class="dropdown-item currency-item" href="#" data-currency="USD">
+                                    <i class="fas fa-dollar-sign"></i> USD
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item currency-item" href="#" data-currency="EUR">
+                                    <i class="fas fa-euro-sign"></i> EUR
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item currency-item" href="#" data-currency="GBP">
+                                    <i class="fas fa-pound-sign"></i> GBP
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="luxuryOffersBtn">
+                            <i class="fas fa-crown"></i> Luxury Offers
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-slider">
+        <div class="slide active">
+            <img src="../assets/images/Spring Hotel Suite.jpg" alt="Hotel View">
+        </div>
+        <div class="slide">
+            <img src="../assets/images/spring pool.jpg" alt="Hotel Pool">
+        </div>
+        <div class="slide">
+            <img src="../assets/images/spring resturant.jpg" alt="Hotel Restaurant">
+        </div>
+
+        <div class="hotel-overlay">
+            <div class="hotel-info">
+                <h1 data-translate="welcome" class="main-title">SpringHill Suites Hotel</h1>
+                <p class="tagline">Experience Luxury & Serenity</p>
+                <div class="hotel-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="rating-text">5.0 Outstanding</span>
+                    <span class="review-count">(2,156 Reviews)</span>
+                </div>
+            </div>
+
+            <!-- Search Form -->
+            <div class="booking-search-container">
+                <div class="booking-search-form">
+                    <div class="search-field">
+                        <label><i class="fas fa-calendar-alt"></i> Check-in</label>
+                        <div class="date-input">
+                            <input type="date" id="checkIn">
+                        </div>
+                    </div>
+                    
+                    <div class="search-field">
+                        <label><i class="fas fa-calendar-alt"></i> Check-out</label>
+                        <div class="date-input">
+                            <input type="date" id="checkOut">
+                        </div>
+                    </div>
+                    
+                    <div class="search-field">
+                        <label><i class="fas fa-user"></i> Adults</label>
+                        <div class="counter-input">
+                            <button class="counter-btn minus">−</button>
+                            <span class="counter-value">0</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="search-field">
+                        <label><i class="fas fa-child"></i> Children</label>
+                        <div class="counter-input">
+                            <button class="counter-btn minus">−</button>
+                            <span class="counter-value">0</span>
+                            <button class="counter-btn plus">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="search-rooms-btn">
+                    <i class="fas fa-search"></i> Search Available Rooms
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Hotel Features</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-concierge-bell feature-icon"></i>
+                        <h3>24/7 Service</h3>
+                        <p>Round-the-clock concierge and room service</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-spa feature-icon"></i>
+                        <h3>Wellness Center</h3>
+                        <p>Modern fitness center and luxury spa facilities</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-utensils feature-icon"></i>
+                        <h3>Fine Dining</h3>
+                        <p>Multiple restaurants with international cuisine</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="feature-card">
+                        <i class="fas fa-swimming-pool feature-icon"></i>
+                        <h3>Indoor Pool</h3>
+                        <p>Temperature controlled pool with city views</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section class="rooms-section">
+        <h2 class="section-title">Luxury Rooms & Suites</h2>
+        <div class="room-cards">
+            <!-- Deluxe Room -->
+            <div class="room-card">
+                <div class="room-image">
+                    <img src="../assets/images/room1 spring.jpg" alt="Deluxe Room">
+                    <span class="room-tag">Most Popular</span>
+                </div>
+                <div class="room-details">
+                    <h3>Deluxe King Room</h3>
+                    <div class="room-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(248 reviews)</span>
+                    </div>
+                    <div class="room-features">
+                        <span><i class="fas fa-bed"></i> King Bed</span>
+                        <span><i class="fas fa-ruler-combined"></i> 45m²</span>
+                        <span><i class="fas fa-mountain"></i> City View</span>
+                    </div>
+                    <div class="room-amenities">
+                        <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                        <span><i class="fas fa-shower"></i> Rain Shower</span>
+                        <span><i class="fas fa-coffee"></i> Coffee Machine</span>
+                        <span><i class="fas fa-tv"></i> 55" Smart TV</span>
+                    </div>
+                    <div class="room-price">
+                        <div class="price-details">
+                            <span class="price">$250</span>
+                            <span class="per-night">/N</span>
+                        </div>
+                        <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Executive Suite -->
+            <div class="room-card premium">
+                <div class="room-image">
+                    <img src="../assets/images/room2 spring.jpg" alt="Executive Suite">
+                    <span class="room-tag luxury">Premium Suite</span>
+                </div>
+                <div class="room-details">
+                    <h3>Executive Luxury Suite</h3>
+                    <div class="room-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(186 reviews)</span>
+                    </div>
+                    <div class="room-features">
+                        <span><i class="fas fa-bed"></i> King Bed + Sofa</span>
+                        <span><i class="fas fa-ruler-combined"></i> 75m²</span>
+                        <span><i class="fas fa-mountain"></i> Ocean View</span>
+                    </div>
+                    <div class="room-amenities">
+                        <span><i class="fas fa-wifi"></i> Premium WiFi</span>
+                        <span><i class="fas fa-bath"></i> Jacuzzi</span>
+                        <span><i class="fas fa-glass-martini-alt"></i> Mini Bar</span>
+                        <span><i class="fas fa-concierge-bell"></i> Butler Service</span>
+                    </div>
+                    <div class="room-price">
+                        <div class="price-details">
+                            <span class="price">$450</span>
+                            <span class="per-night">/N</span>
+                        </div>
+                        <button class="book-btn premium" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presidential Suite -->
+            <div class="room-card luxury">
+                <div class="room-image">
+                    <img src="../assets/images/room3 spring.jpg" alt="Presidential Suite">
+                    <span class="room-tag ultra">Ultra Luxury</span>
+                </div>
+                <div class="room-details">
+                    <h3>Presidential Suite</h3>
+                    <div class="room-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(92 reviews)</span>
+                    </div>
+                    <div class="room-features">
+                        <span><i class="fas fa-bed"></i> 2 King Beds</span>
+                        <span><i class="fas fa-ruler-combined"></i> 120m²</span>
+                        <span><i class="fas fa-mountain"></i> Panoramic View</span>
+                    </div>
+                    <div class="room-amenities">
+                        <span><i class="fas fa-wifi"></i> VIP WiFi</span>
+                        <span><i class="fas fa-swimming-pool"></i> Private Pool</span>
+                        <span><i class="fas fa-utensils"></i> Private Chef</span>
+                        <span><i class="fas fa-car"></i> Limo Service</span>
+                    </div>
+                    <div class="room-price">
+                        <div class="price-details">
+                            <span class="price">$1200</span>
+                            <span class="per-night">/N</span>
+                        </div>
+                        <button class="book-btn luxury" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garden Suite -->
+            <div class="room-card">
+                <div class="room-image">
+                    <img src="../assets/images/room4 springjpg.jpg" alt="Garden Suite">
+                    <span class="room-tag">Garden View</span>
+                </div>
+                <div class="room-details">
+                    <h3>Garden Suite</h3>
+                    <div class="room-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(134 reviews)</span>
+                    </div>
+                    <div class="room-features">
+                        <span><i class="fas fa-bed"></i> Queen Bed</span>
+                        <span><i class="fas fa-ruler-combined"></i> 50m²</span>
+                        <span><i class="fas fa-leaf"></i> Garden View</span>
+                    </div>
+                    <div class="room-amenities">
+                        <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                        <span><i class="fas fa-coffee"></i> Coffee Maker</span>
+                        <span><i class="fas fa-tv"></i> 50" TV</span>
+                        <span><i class="fas fa-bath"></i> Bathtub</span>
+                    </div>
+                    <div class="room-price">
+                        <div class="price-details">
+                            <span class="price">$350</span>
+                            <span class="per-night">/N</span>
+                        </div>
+                        <button class="book-btn" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skyline Suite -->
+            <div class="room-card premium">
+                <div class="room-image">
+                    <img src="../assets/images/room5 spring.jpg" alt="Skyline Suite">
+                    <span class="room-tag luxury">Skyline View</span>
+                </div>
+                <div class="room-details">
+                    <h3>Skyline Suite</h3>
+                    <div class="room-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(210 reviews)</span>
+                    </div>
+                    <div class="room-features">
+                        <span><i class="fas fa-bed"></i> King Bed</span>
+                        <span><i class="fas fa-ruler-combined"></i> 80m²</span>
+                        <span><i class="fas fa-city"></i> Skyline View</span>
+                    </div>
+                    <div class="room-amenities">
+                        <span><i class="fas fa-wifi"></i> High-Speed WiFi</span>
+                        <span><i class="fas fa-glass-martini-alt"></i> Mini Bar</span>
+                        <span><i class="fas fa-tv"></i> 65" Smart TV</span>
+                        <span><i class="fas fa-spa"></i> Spa Access</span>
+                    </div>
+                    <div class="room-price">
+                        <div class="price-details">
+                            <span class="price">$550</span>
+                            <span class="per-night">/N</span>
+                        </div>
+                        <button class="book-btn premium" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Penthouse Suite -->
+            <div class="room-card luxury">
+                <div class="room-image">
+                    <img src="../assets/images/room6 spring.jpg" alt="Penthouse Suite">
+                    <span class="room-tag ultra">Penthouse</span>
+                </div>
+                <div class="room-details">
+                    <h3>Penthouse Suite</h3>
+                    <div class="room-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(75 reviews)</span>
+                    </div>
+                    <div class="room-features">
+                        <span><i class="fas fa-bed"></i> 2 King Beds</span>
+                        <span><i class="fas fa-ruler-combined"></i> 150m²</span>
+                        <span><i class="fas fa-mountain"></i> Panoramic View</span>
+                    </div>
+                    <div class="room-amenities">
+                        <span><i class="fas fa-wifi"></i> VIP WiFi</span>
+                        <span><i class="fas fa-swimming-pool"></i> Private Pool</span>
+                        <span><i class="fas fa-utensils"></i> Private Chef</span>
+                        <span><i class="fas fa-car"></i> Limo Service</span>
+                    </div>
+                    <div class="room-price">
+                        <div class="price-details">
+                            <span class="price">$1400</span>
+                            <span class="per-night">/N</span>
+                        </div>
+                        <button class="book-btn luxury" onclick="bookRoom(this.closest('.room-card'))">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Offers Section -->
+    <section class="luxury-offers" id="luxuryOffersSection" style="display: none">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Luxury Offers</h2>
+            <div class="offers-container">
+                <!-- Offer Card 1 -->
+                <div class="offer-card">
+                    <div class="offer-image">
+                        <img src="../assets/images/Royal Suite package.jpg" alt="Luxury Suite Package">
+                    </div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Royal Suite Package</h3>
+                        <p class="offer-description">Experience ultimate luxury with our Royal Suite package including premium amenities and exclusive services.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag"><i class="fas fa-concierge-bell"></i> Butler Service</span>
+                            <span class="feature-tag"><i class="fas fa-utensils"></i> Fine Dining</span>
+                            <span class="feature-tag"><i class="fas fa-spa"></i> Spa Access</span>
+                        </div>
+                        <div class="offer-price">$599/night</div>
+                        <button class="offer-button">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Offer Card 2 -->
+                <div class="offer-card">
+                    <div class="offer-image">
+                        <img src="../assets/images/honymoon package 2.jpg" alt="Honeymoon Package">
+                    </div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Honeymoon Package</h3>
+                        <p class="offer-description">Create unforgettable moments with our romantic honeymoon package designed for couples.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag"><i class="fas fa-glass-cheers"></i> Champagne</span>
+                            <span class="feature-tag"><i class="fas fa-hot-tub"></i> Private Jacuzzi</span>
+                            <span class="feature-tag"><i class="fas fa-bed"></i> Suite Room</span>
+                        </div>
+                        <div class="offer-price">$499/night</div>
+                        <button class="offer-button">Book Now</button>
+                    </div>
+                </div>
+
+                <!-- Offer Card 3 -->
+                <div class="offer-card">
+                    <div class="offer-image">
+                        <img src="../assets/images/FAMILY-GO-HOLIDAY.jpg" alt="Family Package">
+                    </div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Family Escape</h3>
+                        <p class="offer-description">Perfect for family vacations with spacious accommodations and kid-friendly amenities.</p>
+                        <div class="offer-features">
+                            <span class="feature-tag"><i class="fas fa-swimming-pool"></i> Kids Pool</span>
+                            <span class="feature-tag"><i class="fas fa-gamepad"></i> Game Room</span>
+                            <span class="feature-tag"><i class="fas fa-child"></i> Kids Club</span>
+                        </div>
+                        <div class="offer-price">$399/night</div>
+                        <button class="offer-button">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dining Section -->
+    <section id="dining-section" class="dining-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">
+                <i class="fas fa-utensils"></i> Our Restaurants
+            </h2>
+            
+            <div class="row g-4">
+                <!-- Main Restaurant -->
+                <div class="col-md-6">
+                    <div class="restaurant-card">
+                        <div class="restaurant-image">
+                            <img src="../assets/images/Main Restaurant .jpg" alt="The Grand Restaurant">
+                            <div class="cuisine-badge">Fine Dining</div>
+                        </div>
+                        <div class="restaurant-content">
+                            <h3>The Grand Restaurant</h3>
+                            <div class="restaurant-info">
+                                <span><i class="far fa-clock"></i> 6:30 AM - 11:00 PM</span>
+                                <span><i class="fas fa-users"></i> 120 Seats</span>
+                            </div>
+                            <p>Experience exceptional fine dining with our international cuisine.</p>
+                            <button class="btn-menu" data-restaurant="grand">View Menu</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- American Restaurant -->
+                <div class="col-md-6">
+                    <div class="restaurant-card">
+                        <div class="restaurant-image">
+                            <img src="../assets/images/manhattan-grill.jpg" alt="Manhattan Grill">
+                            <div class="cuisine-badge">American Steakhouse</div>
+                        </div>
+                        <div class="restaurant-content">
+                            <h3>Manhattan Grill</h3>
+                            <div class="restaurant-info">
+                                <span><i class="far fa-clock"></i> 12:00 PM - 11:00 PM</span>
+                                <span><i class="fas fa-users"></i> 90 Seats</span>
+                            </div>
+                            <p>Savor the finest steaks and American cuisine in an elegant setting.</p>
+                            <button class="btn-menu" data-restaurant="manhattan">View Menu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Dishes Section -->
+    <section class="signature-dishes-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">
+                <i class="fas fa-star text-gold"></i> Signature Dishes
+            </h2>
+            
+            <div class="slider-container">
+                <button class="slider-arrow prev-arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="dishes-slider">
+                    <!-- Dish 1 -->
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <img src="../assets/images/Wagyu Steak f.jpg" alt="Wagyu Steak">
+                            <div class="dish-badge">Chef's Special</div>
+                        </div>
+                        <div class="dish-info">
+                            <h3>Wagyu A5 Steak</h3>
+                            <p>Japanese A5 Wagyu with truffle sauce</p>
+                            <div class="dish-price">$250</div>
+                        </div>
+                    </div>
+
+                    <!-- Dish 2 -->
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <img src="../assets/images/Lobster Thermidor.jpg" alt="Lobster">
+                            <div class="dish-badge">Seafood Special</div>
+                        </div>
+                        <div class="dish-info">
+                            <h3>Maine Lobster</h3>
+                            <p>Grilled with herb butter sauce</p>
+                            <div class="dish-price">$180</div>
+                        </div>
+                    </div>
+
+                    <!-- Dish 3 -->
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <img src="../assets/images/French Onion Soup.jpg" alt="Foie Gras">
+                            <div class="dish-badge">Premium</div>
+                        </div>
+                        <div class="dish-info">
+                            <h3>Foie Gras</h3>
+                            <p>Pan-seared with fig compote</p>
+                            <div class="dish-price">$95</div>
+                        </div>
+                    </div>
+
+                    <!-- Dish 4 -->
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <img src="../assets/images/Royal Caviar Selection.jpg" alt="Caviar">
+                            <div class="dish-badge">Luxury</div>
+                        </div>
+                        <div class="dish-info">
+                            <h3>Royal Caviar</h3>
+                            <p>Premium Osetra with traditional garnishes</p>
+                            <div class="dish-price">$180</div>
+                        </div>
+                    </div>
+
+                    <!-- Dish 5 -->
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <img src="../assets/images/Mediterranean Sea Bass.jpg" alt="Sea Bass">
+                            <div class="dish-badge">Ocean Fresh</div>
+                        </div>
+                        <div class="dish-info">
+                            <h3>Mediterranean Sea Bass</h3>
+                            <p>Wild-caught with saffron sauce</p>
+                            <div class="dish-price">$120</div>
+                        </div>
+                    </div>
+
+                    <!-- Dish 6 -->
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <img src="../assets/images/Oysters Rockefeller.jpg" alt="Duck">
+                            <div class="dish-badge">Classic</div>
+                        </div>
+                        <div class="dish-info">
+                            <h3>Duck à l'Orange</h3>
+                            <p>Classic French with orange sauce</p>
+                            <div class="dish-price">$110</div>
+                        </div>
+                    </div>
+
+                    <!-- Dish 7 -->
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <img src="../assets/images/Wagyu Teppanyaki.jpg" alt="Foie Gras">
+                            <div class="dish-badge">Luxury</div>
+                        </div>
+                        <div class="dish-info">
+                            <h3>Foie Gras Terrine</h3>
+                            <p>House-made foie gras with brioche and fig compote</p>
+                            <div class="dish-price">$95</div>
+                        </div>
+                    </div>
+
+                    <!-- Dish 8 -->
+                    <div class="dish-card">
+                        <div class="dish-image">
+                            <img src="../assets/images/Caviar food.jpg" alt="Caviar">
+                            <div class="dish-badge">Premium</div>
+                        </div>
+                        <div class="dish-info">
+                            <h3>Royal Caviar Selection</h3>
+                            <p>Premium Osetra caviar with traditional garnishes</p>
+                            <div class="dish-price">$180</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-arrow next-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Modal -->
+    <div class="modal fade" id="menuModal" style="display: none;" inert>
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title"></h3>
+                    <button type="button" class="gold-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="menu-content">
+                        <!-- Menu content will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details Modal -->
+    <div class="modal fade" id="detailsModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chef Section -->
+    <section class="chef-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="chef-image">
+                        <img src="../assets/images/chef .jpg" alt="Executive Chef">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="chef-content">
+                        <span class="chef-title">Executive Chef</span>
+                        <h2>Michael Anderson</h2>
+                        <p class="chef-description">
+                            With over 25 years of culinary excellence, Chef Michael brings his international expertise 
+                            to create unforgettable dining experiences.
+                        </p>
+                        
+                        <div class="signature-dishes">
+                            <h3>Chef's Signature Dishes:</h3>
+                            <ul>
+                                <li class="dish-item">
+                                    <img src="../assets/images/Wagyu Beef Wellington.jpg" alt="Beef" class="dish-icon">
+                                    Wagyu Beef Wellington
+                                </li>
+                                <li class="dish-item">
+                                    <img src="../assets/images/Truffle Risotto.jpg" alt="Risotto" class="dish-icon">
+                                    Truffle Risotto
+                                </li>
+                                <li class="dish-item">
+                                    <img src="../assets/images/Mediterranean Sea Bass.jpg" alt="Fish" class="dish-icon">
+                                    Mediterranean Sea Bass
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="chef-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Every dish tells a story of passion and creativity"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Form Section -->
+    <section class="reservation-section">
+        <div class="container">
+            <div class="reservation-container">
+                <h2 class="section-title">
+                    <i class="fas fa-concierge-bell"></i>
+                    Reserve Your Table
+                </h2>
+                
+                <form id="reservationForm" class="reservation-form">
+                    <!-- Personal Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guestName">
+                                <i class="fas fa-user"></i> Full Name
+                            </label>
+                            <input type="text" id="guestName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guestEmail">
+                                <i class="fas fa-envelope"></i> Email
+                            </label>
+                            <input type="email" id="guestEmail" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <!-- Contact & Guests -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guestPhone">
+                                <i class="fas fa-phone"></i> Phone Number
+                            </label>
+                            <input type="tel" id="guestPhone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="guestCount">
+                                <i class="fas fa-users"></i> Number of Guests
+                            </label>
+                            <select id="guestCount" class="form-control" required>
+                                <option value="">Select Guests</option>
+                                <option value="1-2">1-2 Guests</option>
+                                <option value="3-4">3-4 Guests</option>
+                                <option value="5-6">5-6 Guests</option>
+                                <option value="7+">7+ Guests</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Date & Time -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reservationDate">
+                                <i class="fas fa-calendar"></i> Date
+                            </label>
+                            <input type="date" id="reservationDate" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reservationTime">
+                                <i class="fas fa-clock"></i> Time
+                            </label>
+                            <select id="reservationTime" class="form-control" required>
+                                <option value="">Select Time</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="19:00">7:00 PM</option>
+                                <option value="20:00">8:00 PM</option>
+                                <option value="21:00">9:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Restaurant Selection -->
+                    <div class="form-group">
+                        <label for="restaurant">
+                            <i class="fas fa-utensils"></i> Select Restaurant
+                        </label>
+                        <select id="restaurant" class="form-control" required>
+                            <option value="">Choose Restaurant</option>
+                            <option value="grand">The Grand Restaurant</option>
+                            <option value="manhattan">Manhattan Grill</option>
+                        </select>
+                    </div>
+
+                    <!-- Special Requests -->
+                    <div class="form-group">
+                        <label for="specialRequests">
+                            <i class="fas fa-comment"></i> Special Requests
+                        </label>
+                        <textarea id="specialRequests" class="form-control" rows="3"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-check-circle"></i>
+                        Confirm Reservation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Details Modal -->
+    <div class="modal fade" id="packageDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="package-gallery">
+                        <div class="main-image-container">
+                            <img id="galleryMainImage" src="" alt="Package Image">
+                        </div>
+                        <div class="gallery-thumbnails"></div>
+                    </div>
+                    <div class="package-details">
+                        <div class="package-amenities"></div>
+                        <div class="package-description"></div>
+                        <div class="package-price"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-book">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/springhill suites hotel.js"></script>
+    <script>
+        function bookRoom(roomCard) {
+            // التحقق من إدخال التواريخ
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            
+            if (!checkIn || !checkOut) {
+                alert('Please select check-in and check-out dates');
+                return;
+            }
+            
+            // الحصول على عدد الضيوف
+            const adults = parseInt(document.querySelectorAll('.counter-value')[0].textContent);
+            const children = parseInt(document.querySelectorAll('.counter-value')[1].textContent);
+            
+            // الحصول على معلومات الغرفة
+            const roomType = roomCard.querySelector('h3').textContent;
+            const price = parseFloat(roomCard.querySelector('.price').textContent.replace('$', ''));
+            const roomImage = roomCard.querySelector('.room-image img').src;
+            
+            // تزين تفاصيل الحجز
+            const bookingDetails = {
+                hotel: "SpringHill Suites Hotel",
+                roomType: roomType,
+                roomImage: roomImage,
+                checkIn: checkIn,
+                checkOut: checkOut,
+                adults: adults,
+                children: children,
+                price: price
+            };
+            
+            // تخزين البيانات في localStorage
+            localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
+            
+            // التحويل إلى صفحة الحجز
+            window.location.href = 'booking.html';
+        }
+    </script>
+</body>
+</html>

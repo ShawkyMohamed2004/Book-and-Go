@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Paris Hotels</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Raleway:wght@300;400&display=swap');
+
+        :root {
+            --gold: #c59d5f;
+            --gold-light: #d4af37;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: url('../assets/images/paris\ background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 2;
+            padding: 50px 0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            background: linear-gradient(to right, var(--gold) 0%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .typing-text {
+            font-size: 1.8rem;
+            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            line-height: 1.8;
+            margin: 0 auto;
+            max-width: 900px;
+            border-right: 2px solid var(--gold);
+            overflow: hidden;
+        }
+
+        .typing-animation {
+            animation: slideFromLeft 2.5s ease-out forwards;
+        }
+
+        .typing-complete {
+            border-right: none;
+        }
+
+        @keyframes slideFromLeft {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 100%;
+                opacity: 1;
+            }
+        }
+
+        .hotel-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--gold);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .hotel-img {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .hotel-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hotel-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .hotel-name {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .hotel-description {
+            color: #fff;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-view {
+            background: var(--gold);
+            color: #000;
+            padding: 6px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .btn-view:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .col-lg-6 {
+            flex: 0 0 calc(50% - 15px);
+            max-width: calc(50% - 15px);
+        }
+
+        @media (max-width: 768px) {
+            .col-lg-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="container">
+            <div class="header">
+                <h1>Luxury Hotels in Paris</h1>
+                <div class="typing-text typing-animation">
+                    Welcome to Paris's Premier Hotels | Where Elegance Meets Excellence
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Four Seasons George V -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="../assets/images/Hotel Lilas Blanc.jpg" alt="Hotel Lilas Blanc">
+                        </div>
+                        <div class="hotel-info">
+                            <h3 class="hotel-name">Hotel Lilas Blanc</h3>
+                            <p class="hotel-description">Steps from the Champs-Élysées, offering views of the Eiffel Tower. Where French elegance meets world-class gastronomy and unparalleled service.</p>
+                            <a href="../pages/Lilas Blanc Hotel.html" class="btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ritz Paris -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="../assets/images/InterContinental hotel.jpg" alt="InterContinental">
+                        </div>
+                        <div class="hotel-info">
+                            <h3 class="hotel-name">InterContinental Hotel</h3>
+                            <p class="hotel-description">A symbol of French luxury since 1898. Experience the epitome of Parisian elegance, where every room tells a story of historical grandeur.</p>
+                            <a href="../pages/InterContinental hotel.html" class="btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Le Royal Monceau -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="../assets/images/Le Royal Monceau.jpg" alt="Le Royal Monceau">
+                        </div>
+                        <div class="hotel-info">
+                            <h3 class="hotel-name">Le Royal Monceau</h3>
+                            <p class="hotel-description">A contemporary masterpiece of art and design near Arc de Triomphe. Where luxury meets creativity in the heart of Paris.</p>
+                            <a href="#" class="btn-view btn-disabled">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shangri-La Paris -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="../assets/images/Shangri-La Paris.jpg" alt="Shangri-La Paris">
+                        </div>
+                        <div class="hotel-info">
+                            <h3 class="hotel-name">Shangri-La Paris</h3>
+                            <p class="hotel-description">Former palace of Prince Roland Bonaparte, offering the best views of the Eiffel Tower. Where Asian hospitality meets French art de vivre.</p>
+                            <a href="#" class="btn-view btn-disabled">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const typingText = document.querySelector('.typing-text');
+        
+        setTimeout(() => {
+            typingText.classList.add('typing-complete');
+        }, 2500);
+    </script>
+</body>
+</html> 

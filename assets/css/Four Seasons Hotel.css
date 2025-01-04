@@ -1,0 +1,71 @@
+/* تفاصيل الفندق */
+.hotel-details {
+    padding: 2rem 0;
+}
+
+.hotel-gallery {
+    margin-bottom: 2rem;
+}
+
+.hotel-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.hotel-info {
+    padding: 1rem;
+}
+
+.hotel-amenities {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* التجاوب مع الشاشات المختلفة */
+@media (max-width: 992px) {
+    .hotel-gallery {
+        margin-bottom: 1.5rem;
+    }
+    
+    .hotel-amenities {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hotel-details {
+        padding: 1.5rem 0;
+    }
+    
+    .hotel-amenities {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .hotel-details {
+        padding: 1rem 0;
+    }
+    
+    .hotel-info {
+        padding: 0.5rem;
+    }
+    
+    .hotel-amenities {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .amenity-item {
+        font-size: 0.9rem;
+    }
+}
