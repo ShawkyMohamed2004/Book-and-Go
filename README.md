@@ -1,6 +1,6 @@
 # 🏨 Book&Go - Luxury Hotel Booking Platform
 <div align="center">
-  <img src="assets/images/Project Photo.png" alt="Project Screenshot">
+  <img src="Project Photo.png" alt="Project Screenshot">
 </div>
 
 ## 📝 Description
