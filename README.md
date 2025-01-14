@@ -1,6 +1,6 @@
 # 🏨 Book&Go - Luxury Hotel Booking Platform
 <div align="center">
-  <img src="../assets/images/Project Photo.png" alt="Project Screenshot">
+  <img src="assets/images/Project Photo.png" alt="Project Screenshot">
 </div>
 
 ## 📝 Description
@@ -15,7 +15,7 @@ Students from Faculty of Computer Science and Engineering - New Mansoura Univers
 - [Ebrahim Osama](https://github.com/EbrahimOsa)
 - [Ahmed Elsaadany](https://github.com/AhmedElsa3dany)
 - [Sayed Tag-Eldin](https://github.com/sayedtag7)
-- [Ebrahim Yahia](https://github.com/ebrahim-yahia)
+- [Ebrahim Yahia](#)
 
 ## 📚 Course Information
 - **Course**: Web Programming
