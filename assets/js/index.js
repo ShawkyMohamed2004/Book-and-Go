@@ -15,7 +15,7 @@ window.redirectToHotel = function() {
         "New York": "pages/New york hotels.html",
         "Paris": "pages/Paris-hotels.html",
         "Dubai": "pages/Dubai-hotels.html",
-        "Turkey": "#",
+        "Medina": "#",
         "Egypt": "#",
         "Maldives": "#"
     };

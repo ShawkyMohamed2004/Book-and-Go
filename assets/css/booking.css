@@ -687,3 +687,84 @@ input:-webkit-autofill:active {
 .fa-cc-mastercard { color: #eb001b; }
 .fa-cc-amex { color: #2e77bc; }
 .fa-cc-discover { color: #ff6000; }
+
+/* Card Type Icon Styles */
+.card-type-icon {
+    background: transparent;
+    border-left: none;
+}
+
+.card-type-icon i {
+    font-size: 24px;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.input-group .form-control:focus {
+    border-right: none;
+    box-shadow: none;
+}
+
+.input-group .form-control:focus + .input-group-text {
+    border-color: #80bdff;
+    border-left: none;
+}
+
+.card-type i {
+    font-size: 24px;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+/* Card validation styles */
+.form-control.is-valid + .input-group-text i {
+    color: #28a745;
+}
+
+.form-control.is-invalid + .input-group-text i {
+    color: #dc3545;
+}
+
+/* Card preview styles */
+.card-preview {
+    margin-bottom: 2rem;
+}
+
+.card-front {
+    background: linear-gradient(45deg, #1a1f71, #2b32b2);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.card-type {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.card-number-display {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin: 40px 0 30px;
+    font-family: 'Courier New', monospace;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.card-holder, .card-expires {
+    text-transform: uppercase;
+}
+
+.card-holder label, .card-expires label {
+    opacity: 0.7;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 5px;
+}

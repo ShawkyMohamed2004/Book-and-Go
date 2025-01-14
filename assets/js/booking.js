@@ -139,11 +139,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const expiryDate = document.getElementById('expiryDate');
     const cvv = document.getElementById('cvv');
 
+    // Enhanced credit card validation
+    function isValidCardNumber(number) {
+        if (!number || typeof number !== 'string') return false;
+
+        // تحقق من طول الرقم فقط (بين 13 و 19 رقم)
+        const hasValidLength = number.length >= 13 && number.length <= 19;
+        if (!hasValidLength) return false;
+
+        // التحقق من بداية الرقم فقط
+        if (
+            number.startsWith('4') || // Visa
+            /^(5[1-5]|2[2-7])/.test(number) || // Mastercard
+            /^3[47]/.test(number) || // American Express
+            /^(6011|65)/.test(number) // Discover
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
     // Card number input formatting and validation
     cardNumber.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
         let formattedValue = '';
         
+        // تنسيق الرقم مع المسافات
         for(let i = 0; i < value.length; i++) {
             if(i > 0 && i % 4 === 0) {
                 formattedValue += ' ';
@@ -153,27 +175,44 @@ document.addEventListener('DOMContentLoaded', function() {
         
         e.target.value = formattedValue;
         
-        // Update preview
+        // تحديث العرض
         document.getElementById('cardNumberPreview').textContent = 
             formattedValue || '•••• •••• •••• ••••';
 
-        // Detect card type
-        const firstNum = value[0];
-        let cardClass = 'fa-cc-visa';
-        
-        if(firstNum === '4') {
+        // تحديد نوع البطاقة من أول رقمين
+        const numberWithoutSpaces = value.replace(/\s/g, '');
+        let cardClass = 'fa-credit-card';
+        let cardColor = '#6c757d';
+
+        if (numberWithoutSpaces.startsWith('4')) {
             cardClass = 'fa-cc-visa';
-        } else if(['51','52','53','54','55'].includes(value.substring(0,2))) {
+            cardColor = '#1a1f71';
+        } else if (/^(5[1-5]|2[2-7])/.test(numberWithoutSpaces)) {
             cardClass = 'fa-cc-mastercard';
-        } else if(['34','37'].includes(value.substring(0,2))) {
+            cardColor = '#eb001b';
+        } else if (/^3[47]/.test(numberWithoutSpaces)) {
             cardClass = 'fa-cc-amex';
-        } else if(['60','65'].includes(value.substring(0,2))) {
+            cardColor = '#2e77bc';
+        } else if (/^(6011|65)/.test(numberWithoutSpaces)) {
             cardClass = 'fa-cc-discover';
+            cardColor = '#ff6000';
         }
 
-        const cardTypeIcon = document.querySelector('.card-type i');
-        if (cardTypeIcon) {
-            cardTypeIcon.className = `fab ${cardClass}`;
+        // تحديث الأيقونات
+        const cardIcons = document.querySelectorAll('.card-type i, .card-type-icon i');
+        cardIcons.forEach(icon => {
+            icon.className = `fab ${cardClass} fa-2x`;
+            icon.style.color = value.length > 0 ? cardColor : '#6c757d';
+            icon.style.opacity = value.length > 0 ? '1' : '0.5';
+        });
+
+        // التحقق من صحة الرقم
+        if (value.length > 0) {
+            const isValid = isValidCardNumber(numberWithoutSpaces);
+            this.classList.toggle('is-valid', isValid);
+            this.classList.toggle('is-invalid', !isValid);
+        } else {
+            this.classList.remove('is-valid', 'is-invalid');
         }
     });
 
@@ -223,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate card number
         const cardNum = cardNumber.value.replace(/\s/g, '');
-        if (!cardNum || cardNum.length < 16 || !isValidCreditCard(cardNum)) {
+        if (!cardNum || cardNum.length < 13 || !isValidCardNumber(cardNum)) {
             cardNumber.classList.add('is-invalid');
             isValid = false;
         }
